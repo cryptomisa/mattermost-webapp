@@ -24,7 +24,7 @@ describe('components/login/LoginController', () => {
         enableSignInWithEmail: false,
         enableSignInWithUsername: false,
         enableSignUpWithEmail: false,
-        enableSignUpWithGitLab: false,
+        enableSignUpWithGitCoin: false,
         enableSignUpWithGoogle: false,
         enableSignUpWithOffice365: false,
         experimentalPrimaryTeam: '',

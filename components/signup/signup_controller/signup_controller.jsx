@@ -25,7 +25,7 @@ export default class SignupController extends React.Component {
         enableOpenServer: PropTypes.bool.isRequired,
         noAccounts: PropTypes.bool.isRequired,
         enableSignUpWithEmail: PropTypes.bool.isRequired,
-        enableSignUpWithGitLab: PropTypes.bool.isRequired,
+        enableSignUpWithGitCoin: PropTypes.bool.isRequired,
         enableSignUpWithGoogle: PropTypes.bool.isRequired,
         enableSignUpWithOffice365: PropTypes.bool.isRequired,
         enableLDAP: PropTypes.bool.isRequired,
@@ -174,19 +174,19 @@ export default class SignupController extends React.Component {
             );
         }
 
-        if (this.props.enableSignUpWithGitLab) {
+        if (this.props.enableSignUpWithGitCoin) {
             signupControls.push(
                 <a
-                    className='btn btn-custom-login btn--full gitlab'
-                    key='gitlab'
-                    href={Client4.getOAuthRoute() + '/gitlab/signup' + window.location.search}
+                    className='btn btn-custom-login btn--full gitcoin'
+                    key='gitcoin'
+                    href={Client4.getOAuthRoute() + '/gitcoin/signup' + window.location.search}
                 >
                     <span>
                         <span className='icon'/>
                         <span>
                             <FormattedMessage
-                                id='signup.gitlab'
-                                defaultMessage='GitLab Single Sign-On'
+                                id='signup.gitcoin'
+                                defaultMessage='Connect GitCoin'
                             />
                         </span>
                     </span>

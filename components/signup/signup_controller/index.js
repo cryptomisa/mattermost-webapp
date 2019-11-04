@@ -22,7 +22,7 @@ function mapStateToProps(state, ownProps) {
     const enableOpenServer = config.EnableOpenServer === 'true';
     const noAccounts = config.NoAccounts === 'true';
     const enableSignUpWithEmail = config.EnableSignUpWithEmail === 'true';
-    const enableSignUpWithGitLab = config.EnableSignUpWithGitLab === 'true';
+    const enableSignUpWithGitCoin = config.EnableSignUpWithGitCoin === 'true';
     const enableSignUpWithGoogle = config.EnableSignUpWithGoogle === 'true';
     const enableSignUpWithOffice365 = config.EnableSignUpWithOffice365 === 'true';
     const enableLDAP = config.EnableLdap === 'true';
@@ -47,7 +47,7 @@ function mapStateToProps(state, ownProps) {
         enableOpenServer,
         noAccounts,
         enableSignUpWithEmail,
-        enableSignUpWithGitLab,
+        enableSignUpWithGitCoin,
         enableSignUpWithGoogle,
         enableSignUpWithOffice365,
         enableLDAP,

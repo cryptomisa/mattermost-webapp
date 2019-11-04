@@ -1196,13 +1196,13 @@ exports[`components/AdminSidebar should match snapshot 1`] = `
             />
             <AdminSidebarSection
               key="9"
-              name="authentication/gitlab"
+              name="authentication/gitcoin"
               parentLink=""
               subsection={false}
               title={
                 <FormattedMessage
-                  defaultMessage="GitLab"
-                  id="admin.sidebar.gitlab"
+                  defaultMessage="GitCoin"
+                  id="admin.sidebar.gitcoin"
                   values={Object {}}
                 />
               }
@@ -1798,13 +1798,13 @@ exports[`components/AdminSidebar should match snapshot, not prevent the console 
             />
             <AdminSidebarSection
               key="9"
-              name="authentication/gitlab"
+              name="authentication/gitcoin"
               parentLink=""
               subsection={false}
               title={
                 <FormattedMessage
-                  defaultMessage="GitLab"
-                  id="admin.sidebar.gitlab"
+                  defaultMessage="GitCoin"
+                  id="admin.sidebar.gitcoin"
                   values={Object {}}
                 />
               }
@@ -2393,13 +2393,13 @@ exports[`components/AdminSidebar should match snapshot, not render the plugin in
             />
             <AdminSidebarSection
               key="9"
-              name="authentication/gitlab"
+              name="authentication/gitcoin"
               parentLink=""
               subsection={false}
               title={
                 <FormattedMessage
-                  defaultMessage="GitLab"
-                  id="admin.sidebar.gitlab"
+                  defaultMessage="GitCoin"
+                  id="admin.sidebar.gitcoin"
                   values={Object {}}
                 />
               }

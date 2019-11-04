@@ -23,7 +23,7 @@ describe('components/AnnouncementBar', () => {
         enableBanner: true,
         bannerColor: 'green',
         bannerTextColor: 'black',
-        enableSignUpWithGitLab: false,
+        enableSignUpWithGitCoin: false,
         message: 'text',
         actions: {
             sendVerificationEmail: jest.fn(),

@@ -71,7 +71,7 @@ exports[`components/SignupController should match snapshot for addUserToTeamFrom
           id="signup_user_completed.haveAccount"
           values={Object {}}
         />
-         
+
         <Link
           to="/login?id=ppni7a9t87fn3j4d56rwocdctc"
         >
@@ -147,9 +147,9 @@ exports[`components/SignupController should match snapshot for all signup option
           </span>
         </Link>
         <a
-          className="btn btn-custom-login btn--full gitlab"
-          href="/oauth/gitlab/signup"
-          key="gitlab"
+          className="btn btn-custom-login btn--full gitcoin"
+          href="/oauth/gitcoin/signup"
+          key="gitcoin"
         >
           <span>
             <span
@@ -157,8 +157,8 @@ exports[`components/SignupController should match snapshot for all signup option
             />
             <span>
               <FormattedMessage
-                defaultMessage="GitLab Single Sign-On"
-                id="signup.gitlab"
+                defaultMessage="GitCoin Single Sign-On"
+                id="signup.gitcoin"
                 values={Object {}}
               />
             </span>
@@ -173,7 +173,7 @@ exports[`components/SignupController should match snapshot for all signup option
           id="signup_user_completed.haveAccount"
           values={Object {}}
         />
-         
+
         <Link
           to="/login"
         >
@@ -249,9 +249,9 @@ exports[`components/SignupController should match snapshot for all signup option
           </span>
         </Link>
         <a
-          className="btn btn-custom-login btn--full gitlab"
-          href="/oauth/gitlab/signup"
-          key="gitlab"
+          className="btn btn-custom-login btn--full gitcoin"
+          href="/oauth/gitcoin/signup"
+          key="gitcoin"
         >
           <span>
             <span
@@ -259,8 +259,8 @@ exports[`components/SignupController should match snapshot for all signup option
             />
             <span>
               <FormattedMessage
-                defaultMessage="GitLab Single Sign-On"
-                id="signup.gitlab"
+                defaultMessage="GitCoin Single Sign-On"
+                id="signup.gitcoin"
                 values={Object {}}
               />
             </span>
@@ -345,7 +345,7 @@ exports[`components/SignupController should match snapshot for all signup option
           id="signup_user_completed.haveAccount"
           values={Object {}}
         />
-         
+
         <Link
           to="/login"
         >
