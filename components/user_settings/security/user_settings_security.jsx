@@ -44,8 +44,8 @@ export default class SecurityTab extends React.PureComponent {
         // Whether or not sign-up with email is enabled.
         enableSignUpWithEmail: PropTypes.bool,
 
-        // Whether or not sign-up with GitLab is enabled.
-        enableSignUpWithGitLab: PropTypes.bool,
+        // Whether or not sign-up with GitCoin is enabled.
+        enableSignUpWithGitCoin: PropTypes.bool,
 
         // Whether or not sign-up with Google is enabled.
         enableSignUpWithGoogle: PropTypes.bool,
@@ -296,7 +296,7 @@ export default class SecurityTab extends React.PureComponent {
                         </div>
                     </div>
                 );
-            } else if (this.props.user.auth_service === Constants.GITLAB_SERVICE) {
+            } else if (this.props.user.auth_service === Constants.gitcoin_SERVICE) {
                 inputs.push(
                     <div
                         key='oauthEmailInfo'
@@ -304,8 +304,8 @@ export default class SecurityTab extends React.PureComponent {
                     >
                         <div className='padding-bottom x2'>
                             <FormattedMessage
-                                id='user.settings.security.passwordGitlabCantUpdate'
-                                defaultMessage='Login occurs through GitLab. Password cannot be updated.'
+                                id='user.settings.security.passwordGitcoinCantUpdate'
+                                defaultMessage='Login occurs through GitCoin. Password cannot be updated.'
                             />
                         </div>
                     </div>
@@ -415,11 +415,11 @@ export default class SecurityTab extends React.PureComponent {
                     }}
                 />
             );
-        } else if (this.props.user.auth_service === Constants.GITLAB_SERVICE) {
+        } else if (this.props.user.auth_service === Constants.gitcoin_SERVICE) {
             describe = (
                 <FormattedMessage
-                    id='user.settings.security.loginGitlab'
-                    defaultMessage='Login done through GitLab'
+                    id='user.settings.security.loginGitcoin'
+                    defaultMessage='Login done through GitCoin'
                 />
             );
         } else if (this.props.user.auth_service === Constants.LDAP_SERVICE) {
@@ -473,23 +473,23 @@ export default class SecurityTab extends React.PureComponent {
 
         if (this.props.activeSection === SECTION_SIGNIN) {
             let emailOption;
-            let gitlabOption;
+            let gitcoinOption;
             let googleOption;
             let office365Option;
             let ldapOption;
             let samlOption;
 
             if (user.auth_service === '') {
-                if (this.props.enableSignUpWithGitLab) {
-                    gitlabOption = (
+                if (this.props.enableSignUpWithGitCoin) {
+                    gitcoinOption = (
                         <div className='padding-bottom x2'>
                             <Link
                                 className='btn btn-primary'
-                                to={'/claim/email_to_oauth?email=' + encodeURIComponent(user.email) + '&old_type=' + user.auth_service + '&new_type=' + Constants.GITLAB_SERVICE}
+                                to={'/claim/email_to_oauth?email=' + encodeURIComponent(user.email) + '&old_type=' + user.auth_service + '&new_type=' + Constants.gitcoin_SERVICE}
                             >
                                 <FormattedMessage
-                                    id='user.settings.security.switchGitlab'
-                                    defaultMessage='Switch to using GitLab SSO'
+                                    id='user.settings.security.switchGitcoin'
+                                    defaultMessage='Switch to using GitCoin SSO'
                                 />
                             </Link>
                             <br/>
@@ -592,7 +592,7 @@ export default class SecurityTab extends React.PureComponent {
             inputs.push(
                 <div key='userSignInOption'>
                     {emailOption}
-                    {gitlabOption}
+                    {gitcoinOption}
                     {googleOption}
                     {office365Option}
                     {ldapOption}
@@ -626,11 +626,11 @@ export default class SecurityTab extends React.PureComponent {
                 defaultMessage='Email and Password'
             />
         );
-        if (this.props.user.auth_service === Constants.GITLAB_SERVICE) {
+        if (this.props.user.auth_service === Constants.gitcoin_SERVICE) {
             describe = (
                 <FormattedMessage
-                    id='user.settings.security.gitlab'
-                    defaultMessage='GitLab'
+                    id='user.settings.security.gitcoin'
+                    defaultMessage='GitCoin'
                 />
             );
         } else if (this.props.user.auth_service === Constants.GOOGLE_SERVICE) {
@@ -810,7 +810,7 @@ export default class SecurityTab extends React.PureComponent {
         const passwordSection = this.createPasswordSection();
 
         let numMethods = 0;
-        numMethods = this.props.enableSignUpWithGitLab ? numMethods + 1 : numMethods;
+        numMethods = this.props.enableSignUpWithGitCoin ? numMethods + 1 : numMethods;
         numMethods = this.props.enableSignUpWithGoogle ? numMethods + 1 : numMethods;
         numMethods = this.props.enableSignUpWithOffice365 ? numMethods + 1 : numMethods;
         numMethods = this.props.enableLdap ? numMethods + 1 : numMethods;

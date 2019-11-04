@@ -2,13 +2,13 @@
 
 exports[`components/error_page/ErrorLink should match snapshot 1`] = `
 <a
-  href="https://docs.mattermost.com/deployment/sso-gitlab.html"
+  href="https://docs.mattermost.com/deployment/sso-gitcoin.html"
   rel="noopener noreferrer"
   target="_blank"
 >
   <FormattedMessage
-    defaultMessage="GitLab"
-    id="error.oauth_missing_code.gitlab.link"
+    defaultMessage="GitCoin"
+    id="error.oauth_missing_code.gitcoin.link"
     values={Object {}}
   />
 </a>

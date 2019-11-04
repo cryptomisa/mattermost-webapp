@@ -33,7 +33,7 @@ describe('components/error_page/ErrorMessage', () => {
     });
 
     test('should match snapshot, oauth_missing_code type', () => {
-        const props = {...baseProps, type: ErrorPageTypes.OAUTH_MISSING_CODE, service: 'Gitlab'};
+        const props = {...baseProps, type: ErrorPageTypes.OAUTH_MISSING_CODE, service: 'GitCoin'};
         const wrapper = shallow(
             <ErrorMessage {...props}/>
         );
@@ -42,7 +42,7 @@ describe('components/error_page/ErrorMessage', () => {
     });
 
     test('should match snapshot, oauth_access_denied type', () => {
-        const props = {...baseProps, type: ErrorPageTypes.OAUTH_ACCESS_DENIED, service: 'Gitlab'};
+        const props = {...baseProps, type: ErrorPageTypes.OAUTH_ACCESS_DENIED, service: 'GitCoin'};
         const wrapper = shallow(
             <ErrorMessage {...props}/>
         );

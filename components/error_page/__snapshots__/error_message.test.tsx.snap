@@ -66,7 +66,7 @@ exports[`components/error_page/ErrorMessage should match snapshot, oauth_access_
     id="error.oauth_access_denied"
     values={
       Object {
-        "service": "Gitlab",
+        "service": "GitCoin",
       }
     }
   />
@@ -81,7 +81,7 @@ exports[`components/error_page/ErrorMessage should match snapshot, oauth_missing
       id="error.oauth_missing_code"
       values={
         Object {
-          "service": "Gitlab",
+          "service": "GitCoin",
         }
       }
     />
@@ -119,13 +119,13 @@ exports[`components/error_page/ErrorMessage should match snapshot, oauth_missing
   <p>
     <FormattedMessage
       defaultMessage="For {link} please make sure you followed the setup instructions."
-      id="error.oauth_missing_code.gitlab"
+      id="error.oauth_missing_code.gitcoin"
       values={
         Object {
           "link": <ErrorLink
-            defaultMessage="GitLab"
-            messageId="error.oauth_missing_code.gitlab.link"
-            url="https://docs.mattermost.com/deployment/sso-gitlab.html"
+            defaultMessage="GitCoin"
+            messageId="error.oauth_missing_code.gitcoin.link"
+            url="https://docs.mattermost.com/deployment/sso-gitcoin.html"
           />,
         }
       }

@@ -158,8 +158,8 @@ exports[`components/AdminConsole should generate the routes 1`] = `
           render={[Function]}
         />
         <Route
-          key="authentication/gitlab"
-          path="/authentication/gitlab"
+          key="authentication/gitcoin"
+          path="/authentication/gitcoin"
           render={[Function]}
         />
         <Route

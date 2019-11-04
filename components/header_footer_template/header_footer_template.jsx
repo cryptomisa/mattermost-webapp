@@ -106,7 +106,7 @@ export default class NotLoggedIn extends React.PureComponent {
                                 id='company_name'
                                 className='pull-right footer-site-name'
                             >
-                                {'Mattermost'}
+                                {'GitCoin'}
                             </span>
                         </div>
                         <div className='col-xs-12'>

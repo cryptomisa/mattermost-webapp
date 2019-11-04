@@ -332,15 +332,15 @@ body {
                 }
             }
 
-            &.gitlab {
-                background: #554488;
+            &.gitcoin {
+                background: #25e899;
 
                 &:hover {
-                    background: darken(#554488, 10%);
+                    background: darken(#25e899, 10%);
                 }
 
                 .icon {
-                    background-image: url('../images/gitlabLogo.png');
+                    background-image: url('../images/gitcoin-logo.svg');
                 }
             }
 

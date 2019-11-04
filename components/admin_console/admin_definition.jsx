@@ -1317,7 +1317,7 @@ const AdminDefinition = {
                         label: t('admin.service.ssoSessionDays'),
                         label_default: 'Session Length SSO (days):',
                         help_text: t('admin.service.ssoSessionDaysDesc'),
-                        help_text_default: 'The number of days from the last time a user entered their credentials to the expiry of the users session. If the authentication method is SAML or GitLab, the user may automatically be logged back in to Mattermost if they are already logged in to SAML or GitLab. After changing this setting, the setting will take effect after the next time the user enters their credentials.',
+                        help_text_default: 'The number of days from the last time a user entered their credentials to the expiry of the users session. If the authentication method is SAML or GitCoin, the user may automatically be logged back in to Mattermost if they are already logged in to SAML or GitCoin. After changing this setting, the setting will take effect after the next time the user enters their credentials.',
                         placeholder: t('admin.service.sessionDaysEx'),
                         placeholder_default: 'E.g.: "30"',
                     },
@@ -2153,7 +2153,7 @@ const AdminDefinition = {
                         label: t('admin.email.allowSignupTitle'),
                         label_default: 'Enable account creation with email:',
                         help_text: t('admin.email.allowSignupDescription'),
-                        help_text_default: 'When true, Mattermost allows account creation using email and password. This value should be false only when you want to limit sign up to a single sign-on service like AD/LDAP, SAML or GitLab.',
+                        help_text_default: 'When true, Mattermost allows account creation using email and password. This value should be false only when you want to limit sign up to a single sign-on service like AD/LDAP, SAML or GitCoin.',
                     },
                     {
                         type: Constants.SettingsTypes.TYPE_BOOL,
@@ -3132,76 +3132,76 @@ const AdminDefinition = {
                 ],
             },
         },
-        gitlab: {
-            url: 'authentication/gitlab',
-            title: t('admin.sidebar.gitlab'),
-            title_default: 'GitLab',
+        gitcoin: {
+            url: 'authentication/gitcoin',
+            title: t('admin.sidebar.gitcoin'),
+            title_default: 'GitCoin',
             isHidden: it.licensed,
             schema: {
-                id: 'GitLabSettings',
-                name: t('admin.authentication.gitlab'),
-                name_default: 'GitLab',
+                id: 'GitCoinSettings',
+                name: t('admin.authentication.gitcoin'),
+                name_default: 'GitCoin',
                 onConfigLoad: (config) => {
                     const newState = {};
-                    newState['GitLabSettings.Url'] = config.GitLabSettings.UserApiEndpoint.replace('/api/v4/user', '');
+                    newState['GitCoinSettings.Url'] = config.GitCoinSettings.UserApiEndpoint.replace('/api/v4/user', '');
                     return newState;
                 },
                 onConfigSave: (config) => {
                     const newConfig = {...config};
-                    newConfig.GitLabSettings.UserApiEndpoint = config.GitLabSettings.Url.replace(/\/$/, '') + '/api/v4/user';
+                    newConfig.GitCoinSettings.UserApiEndpoint = config.GitCoinSettings.Url.replace(/\/$/, '') + '/api/v4/user';
                     return newConfig;
                 },
                 settings: [
                     {
                         type: Constants.SettingsTypes.TYPE_BOOL,
-                        key: 'GitLabSettings.Enable',
-                        label: t('admin.gitlab.enableTitle'),
-                        label_default: 'Enable authentication with GitLab: ',
-                        help_text: t('admin.gitlab.enableDescription'),
-                        help_text_default: 'When true, Mattermost allows team creation and account signup using GitLab OAuth.\n \n1. Log in to your GitLab account and go to Profile Settings -> Applications.\n2. Enter Redirect URIs "<your-mattermost-url>/login/gitlab/complete" (example: http://localhost:8065/login/gitlab/complete) and "<your-mattermost-url>/signup/gitlab/complete".\n3. Then use "Application Secret Key" and "Application ID" fields from GitLab to complete the options below.\n4. Complete the Endpoint URLs below.',
+                        key: 'GitCoinSettings.Enable',
+                        label: t('admin.gitcoin.enableTitle'),
+                        label_default: 'Enable authentication with GitCoin: ',
+                        help_text: t('admin.gitcoin.enableDescription'),
+                        help_text_default: 'When true, Mattermost allows team creation and account signup using GitCoin OAuth.\n \n1. Log in to your GitCoin account and go to Profile Settings -> Applications.\n2. Enter Redirect URIs "<your-mattermost-url>/login/gitcoin/complete" (example: http://localhost:8065/login/gitcoin/complete) and "<your-mattermost-url>/signup/gitcoin/complete".\n3. Then use "Application Secret Key" and "Application ID" fields from GitCoin to complete the options below.\n4. Complete the Endpoint URLs below.',
                         help_text_markdown: true,
                     },
                     {
                         type: Constants.SettingsTypes.TYPE_TEXT,
-                        key: 'GitLabSettings.Id',
-                        label: t('admin.gitlab.clientIdTitle'),
+                        key: 'GitCoinSettings.Id',
+                        label: t('admin.gitcoin.clientIdTitle'),
                         label_default: 'Application ID:',
-                        help_text: t('admin.gitlab.clientIdDescription'),
-                        help_text_default: 'Obtain this value via the instructions above for logging into GitLab.',
-                        placeholder: t('admin.gitlab.clientIdExample'),
+                        help_text: t('admin.gitcoin.clientIdDescription'),
+                        help_text_default: 'Obtain this value via the instructions above for logging into GitCoin.',
+                        placeholder: t('admin.gitcoin.clientIdExample'),
                         placeholder_default: 'E.g.: "jcuS8PuvcpGhpgHhlcpT1Mx42pnqMxQY"',
-                        isDisabled: it.stateIsFalse('GitLabSettings.Enable'),
+                        isDisabled: it.stateIsFalse('GitCoinSettings.Enable'),
                     },
                     {
                         type: Constants.SettingsTypes.TYPE_TEXT,
-                        key: 'GitLabSettings.Secret',
-                        label: t('admin.gitlab.clientSecretTitle'),
+                        key: 'GitCoinSettings.Secret',
+                        label: t('admin.gitcoin.clientSecretTitle'),
                         label_default: 'Application Secret Key:',
-                        help_text: t('admin.gitlab.clientSecretDescription'),
-                        help_text_default: 'Obtain this value via the instructions above for logging into GitLab.',
-                        placeholder: t('admin.gitlab.clientSecretExample'),
+                        help_text: t('admin.gitcoin.clientSecretDescription'),
+                        help_text_default: 'Obtain this value via the instructions above for logging into GitCoin.',
+                        placeholder: t('admin.gitcoin.clientSecretExample'),
                         placeholder_default: 'E.g.: "jcuS8PuvcpGhpgHhlcpT1Mx42pnqMxQY"',
-                        isDisabled: it.stateIsFalse('GitLabSettings.Enable'),
+                        isDisabled: it.stateIsFalse('GitCoinSettings.Enable'),
                     },
                     {
                         type: Constants.SettingsTypes.TYPE_TEXT,
-                        key: 'GitLabSettings.Url',
-                        label: t('admin.gitlab.siteUrl'),
-                        label_default: 'GitLab Site URL:',
-                        help_text: t('admin.gitlab.siteUrlDescription'),
-                        help_text_default: 'Enter the URL of your GitLab instance, e.g. https://example.com:3000. If your GitLab instance is not set up with SSL, start the URL with http:// instead of https://.',
-                        placeholder: t('admin.gitlab.siteUrlExample'),
+                        key: 'GitCoinSettings.Url',
+                        label: t('admin.gitcoin.siteUrl'),
+                        label_default: 'GitCoin Site URL:',
+                        help_text: t('admin.gitcoin.siteUrlDescription'),
+                        help_text_default: 'Enter the URL of your GitCoin instance, e.g. https://example.com:3000. If your GitCoin instance is not set up with SSL, start the URL with http:// instead of https://.',
+                        placeholder: t('admin.gitcoin.siteUrlExample'),
                         placeholder_default: 'E.g.: https://',
-                        isDisabled: it.stateIsFalse('GitLabSettings.Enable'),
+                        isDisabled: it.stateIsFalse('GitCoinSettings.Enable'),
                     },
                     {
                         type: Constants.SettingsTypes.TYPE_TEXT,
-                        key: 'GitLabSettings.UserApiEndpoint',
-                        label: t('admin.gitlab.userTitle'),
+                        key: 'GitCoinSettings.UserApiEndpoint',
+                        label: t('admin.gitcoin.userTitle'),
                         label_default: 'User API Endpoint:',
                         dynamic_value: (value, config, state) => {
-                            if (state['GitLabSettings.Url']) {
-                                return state['GitLabSettings.Url'].replace(/\/$/, '') + '/api/v4/user';
+                            if (state['GitCoinSettings.Url']) {
+                                return state['GitCoinSettings.Url'].replace(/\/$/, '') + '/api/v4/user';
                             }
                             return '';
                         },
@@ -3209,12 +3209,12 @@ const AdminDefinition = {
                     },
                     {
                         type: Constants.SettingsTypes.TYPE_TEXT,
-                        key: 'GitLabSettings.AuthEndpoint',
-                        label: t('admin.gitlab.authTitle'),
+                        key: 'GitCoinSettings.AuthEndpoint',
+                        label: t('admin.gitcoin.authTitle'),
                         label_default: 'Auth Endpoint:',
                         dynamic_value: (value, config, state) => {
-                            if (state['GitLabSettings.Url']) {
-                                return state['GitLabSettings.Url'].replace(/\/$/, '') + '/oauth/authorize';
+                            if (state['GitCoinSettings.Url']) {
+                                return state['GitCoinSettings.Url'].replace(/\/$/, '') + '/oauth/authorize';
                             }
                             return '';
                         },
@@ -3222,12 +3222,12 @@ const AdminDefinition = {
                     },
                     {
                         type: Constants.SettingsTypes.TYPE_TEXT,
-                        key: 'GitLabSettings.TokenEndpoint',
-                        label: t('admin.gitlab.tokenTitle'),
+                        key: 'GitCoinSettings.TokenEndpoint',
+                        label: t('admin.gitcoin.tokenTitle'),
                         label_default: 'Token Endpoint:',
                         dynamic_value: (value, config, state) => {
-                            if (state['GitLabSettings.Url']) {
-                                return state['GitLabSettings.Url'].replace(/\/$/, '') + '/oauth/token';
+                            if (state['GitCoinSettings.Url']) {
+                                return state['GitCoinSettings.Url'].replace(/\/$/, '') + '/oauth/token';
                             }
                             return '';
                         },
@@ -3247,8 +3247,8 @@ const AdminDefinition = {
                 name_default: 'OAuth 2.0',
                 onConfigLoad: (config) => {
                     const newState = {};
-                    if (config.GitLabSettings && config.GitLabSettings.Enable) {
-                        newState.oauthType = Constants.GITLAB_SERVICE;
+                    if (config.GitCoinSettings && config.GitCoinSettings.Enable) {
+                        newState.oauthType = Constants.gitcoin_SERVICE;
                     }
                     if (config.Office365Settings && config.Office365Settings.Enable) {
                         newState.oauthType = Constants.OFFICE365_SERVICE;
@@ -3257,23 +3257,23 @@ const AdminDefinition = {
                         newState.oauthType = Constants.GOOGLE_SERVICE;
                     }
 
-                    newState['GitLabSettings.Url'] = config.GitLabSettings.UserApiEndpoint.replace('/api/v4/user', '');
+                    newState['GitCoinSettings.Url'] = config.GitCoinSettings.UserApiEndpoint.replace('/api/v4/user', '');
 
                     return newState;
                 },
                 onConfigSave: (config) => {
                     const newConfig = {...config};
-                    newConfig.GitLabSettings = config.GitLabSettings || {};
+                    newConfig.GitCoinSettings = config.GitCoinSettings || {};
                     newConfig.Office365Settings = config.Office365Settings || {};
                     newConfig.GoogleSettings = config.GoogleSettings || {};
 
-                    newConfig.GitLabSettings.Enable = false;
+                    newConfig.GitCoinSettings.Enable = false;
                     newConfig.Office365Settings.Enable = false;
                     newConfig.GoogleSettings.Enable = false;
-                    newConfig.GitLabSettings.UserApiEndpoint = config.GitLabSettings.Url.replace(/\/$/, '') + '/api/v4/user';
+                    newConfig.GitCoinSettings.UserApiEndpoint = config.GitCoinSettings.Url.replace(/\/$/, '') + '/api/v4/user';
 
-                    if (config.oauthType === Constants.GITLAB_SERVICE) {
-                        newConfig.GitLabSettings.Enable = true;
+                    if (config.oauthType === Constants.gitcoin_SERVICE) {
+                        newConfig.GitCoinSettings.Enable = true;
                     }
                     if (config.oauthType === Constants.OFFICE365_SERVICE) {
                         newConfig.Office365Settings.Enable = true;
@@ -3297,11 +3297,11 @@ const AdminDefinition = {
                                 display_name_default: 'Do not allow sign-in via an OAuth 2.0 provider.',
                             },
                             {
-                                value: Constants.GITLAB_SERVICE,
-                                display_name: t('admin.oauth.gitlab'),
-                                display_name_default: 'GitLab',
-                                help_text: t('admin.gitlab.EnableMarkdownDesc'),
-                                help_text_default: '1. Log in to your GitLab account and go to Profile Settings -> Applications.\n2. Enter Redirect URIs "<your-mattermost-url>/login/gitlab/complete" (example: http://localhost:8065/login/gitlab/complete) and "<your-mattermost-url>/signup/gitlab/complete".\n3. Then use "Application Secret Key" and "Application ID" fields from GitLab to complete the options below.\n4. Complete the Endpoint URLs below.',
+                                value: Constants.gitcoin_SERVICE,
+                                display_name: t('admin.oauth.gitcoin'),
+                                display_name_default: 'GitCoin',
+                                help_text: t('admin.gitcoin.EnableMarkdownDesc'),
+                                help_text_default: '1. Log in to your GitCoin account and go to Profile Settings -> Applications.\n2. Enter Redirect URIs "<your-mattermost-url>/login/gitcoin/complete" (example: http://localhost:8065/login/gitcoin/complete) and "<your-mattermost-url>/signup/gitcoin/complete".\n3. Then use "Application Secret Key" and "Application ID" fields from GitCoin to complete the options below.\n4. Complete the Endpoint URLs below.',
                                 help_text_markdown: true,
                             },
                             {
@@ -3326,78 +3326,78 @@ const AdminDefinition = {
                     },
                     {
                         type: Constants.SettingsTypes.TYPE_TEXT,
-                        key: 'GitLabSettings.Id',
-                        label: t('admin.gitlab.clientIdTitle'),
+                        key: 'GitCoinSettings.Id',
+                        label: t('admin.gitcoin.clientIdTitle'),
                         label_default: 'Application ID:',
-                        help_text: t('admin.gitlab.clientIdDescription'),
-                        help_text_default: 'Obtain this value via the instructions above for logging into GitLab.',
-                        placeholder: t('admin.gitlab.clientIdExample'),
+                        help_text: t('admin.gitcoin.clientIdDescription'),
+                        help_text_default: 'Obtain this value via the instructions above for logging into GitCoin.',
+                        placeholder: t('admin.gitcoin.clientIdExample'),
                         placeholder_default: 'E.g.: "jcuS8PuvcpGhpgHhlcpT1Mx42pnqMxQY"',
-                        isHidden: it.isnt(it.stateEquals('oauthType', 'gitlab')),
+                        isHidden: it.isnt(it.stateEquals('oauthType', 'gitcoin')),
                     },
                     {
                         type: Constants.SettingsTypes.TYPE_TEXT,
-                        key: 'GitLabSettings.Secret',
-                        label: t('admin.gitlab.clientSecretTitle'),
+                        key: 'GitCoinSettings.Secret',
+                        label: t('admin.gitcoin.clientSecretTitle'),
                         label_default: 'Application Secret Key:',
-                        help_text: t('admin.gitlab.clientSecretDescription'),
-                        help_text_default: 'Obtain this value via the instructions above for logging into GitLab.',
-                        placeholder: t('admin.gitlab.clientSecretExample'),
+                        help_text: t('admin.gitcoin.clientSecretDescription'),
+                        help_text_default: 'Obtain this value via the instructions above for logging into GitCoin.',
+                        placeholder: t('admin.gitcoin.clientSecretExample'),
                         placeholder_default: 'E.g.: "jcuS8PuvcpGhpgHhlcpT1Mx42pnqMxQY"',
-                        isHidden: it.isnt(it.stateEquals('oauthType', 'gitlab')),
+                        isHidden: it.isnt(it.stateEquals('oauthType', 'gitcoin')),
                     },
                     {
                         type: Constants.SettingsTypes.TYPE_TEXT,
-                        key: 'GitLabSettings.Url',
-                        label: t('admin.gitlab.siteUrl'),
-                        label_default: 'GitLab Site URL:',
-                        help_text: t('admin.gitlab.siteUrlDescription'),
-                        help_text_default: 'Enter the URL of your GitLab instance, e.g. https://example.com:3000. If your GitLab instance is not set up with SSL, start the URL with http:// instead of https://.',
-                        placeholder: t('admin.gitlab.siteUrlExample'),
+                        key: 'GitCoinSettings.Url',
+                        label: t('admin.gitcoin.siteUrl'),
+                        label_default: 'GitCoin Site URL:',
+                        help_text: t('admin.gitcoin.siteUrlDescription'),
+                        help_text_default: 'Enter the URL of your GitCoin instance, e.g. https://example.com:3000. If your GitCoin instance is not set up with SSL, start the URL with http:// instead of https://.',
+                        placeholder: t('admin.gitcoin.siteUrlExample'),
                         placeholder_default: 'E.g.: https://',
-                        isHidden: it.isnt(it.stateEquals('oauthType', 'gitlab')),
+                        isHidden: it.isnt(it.stateEquals('oauthType', 'gitcoin')),
                     },
                     {
                         type: Constants.SettingsTypes.TYPE_TEXT,
-                        key: 'GitLabSettings.UserApiEndpoint',
-                        label: t('admin.gitlab.userTitle'),
+                        key: 'GitCoinSettings.UserApiEndpoint',
+                        label: t('admin.gitcoin.userTitle'),
                         label_default: 'User API Endpoint:',
                         dynamic_value: (value, config, state) => {
-                            if (state['GitLabSettings.Url']) {
-                                return state['GitLabSettings.Url'].replace(/\/$/, '') + '/api/v4/user';
+                            if (state['GitCoinSettings.Url']) {
+                                return state['GitCoinSettings.Url'].replace(/\/$/, '') + '/api/v4/user';
                             }
                             return '';
                         },
                         isDisabled: true,
-                        isHidden: it.isnt(it.stateEquals('oauthType', 'gitlab')),
+                        isHidden: it.isnt(it.stateEquals('oauthType', 'gitcoin')),
                     },
                     {
                         type: Constants.SettingsTypes.TYPE_TEXT,
-                        key: 'GitLabSettings.AuthEndpoint',
-                        label: t('admin.gitlab.authTitle'),
+                        key: 'GitCoinSettings.AuthEndpoint',
+                        label: t('admin.gitcoin.authTitle'),
                         label_default: 'Auth Endpoint:',
                         dynamic_value: (value, config, state) => {
-                            if (state['GitLabSettings.Url']) {
-                                return state['GitLabSettings.Url'].replace(/\/$/, '') + '/oauth/authorize';
+                            if (state['GitCoinSettings.Url']) {
+                                return state['GitCoinSettings.Url'].replace(/\/$/, '') + '/oauth/authorize';
                             }
                             return '';
                         },
                         isDisabled: true,
-                        isHidden: it.isnt(it.stateEquals('oauthType', 'gitlab')),
+                        isHidden: it.isnt(it.stateEquals('oauthType', 'gitcoin')),
                     },
                     {
                         type: Constants.SettingsTypes.TYPE_TEXT,
-                        key: 'GitLabSettings.TokenEndpoint',
-                        label: t('admin.gitlab.tokenTitle'),
+                        key: 'GitCoinSettings.TokenEndpoint',
+                        label: t('admin.gitcoin.tokenTitle'),
                         label_default: 'Token Endpoint:',
                         dynamic_value: (value, config, state) => {
-                            if (state['GitLabSettings.Url']) {
-                                return state['GitLabSettings.Url'].replace(/\/$/, '') + '/oauth/token';
+                            if (state['GitCoinSettings.Url']) {
+                                return state['GitCoinSettings.Url'].replace(/\/$/, '') + '/oauth/token';
                             }
                             return '';
                         },
                         isDisabled: true,
-                        isHidden: it.isnt(it.stateEquals('oauthType', 'gitlab')),
+                        isHidden: it.isnt(it.stateEquals('oauthType', 'gitcoin')),
                     },
                     {
                         type: Constants.SettingsTypes.TYPE_TEXT,

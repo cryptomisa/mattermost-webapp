@@ -50,7 +50,7 @@ class LoginController extends React.Component {
         enableSignInWithEmail: PropTypes.bool.isRequired,
         enableSignInWithUsername: PropTypes.bool.isRequired,
         enableSignUpWithEmail: PropTypes.bool.isRequired,
-        enableSignUpWithGitLab: PropTypes.bool.isRequired,
+        enableSignUpWithGitCoin: PropTypes.bool.isRequired,
         enableSignUpWithGoogle: PropTypes.bool.isRequired,
         enableSignUpWithOffice365: PropTypes.bool.isRequired,
         experimentalPrimaryTeam: PropTypes.string,
@@ -413,7 +413,7 @@ class LoginController extends React.Component {
 
     checkSignUpEnabled = () => {
         return this.props.enableSignUpWithEmail ||
-            this.props.enableSignUpWithGitLab ||
+            this.props.enableSignUpWithGitCoin ||
             this.props.enableSignUpWithOffice365 ||
             this.props.enableSignUpWithGoogle ||
             this.props.enableLdap ||
@@ -526,7 +526,7 @@ class LoginController extends React.Component {
         const loginControls = [];
 
         const ldapEnabled = this.state.ldapEnabled;
-        const gitlabSigninEnabled = this.props.enableSignUpWithGitLab;
+        const gitcoinSigninEnabled = this.props.enableSignUpWithGitCoin;
         const googleSigninEnabled = this.props.enableSignUpWithGoogle;
         const office365SigninEnabled = this.props.enableSignUpWithOffice365;
         const samlSigninEnabled = this.state.samlEnabled;
@@ -642,7 +642,7 @@ class LoginController extends React.Component {
             );
         }
 
-        if ((emailSigninEnabled || usernameSigninEnabled || ldapEnabled) && (gitlabSigninEnabled || googleSigninEnabled || samlSigninEnabled || office365SigninEnabled)) {
+        if ((emailSigninEnabled || usernameSigninEnabled || ldapEnabled) && (gitcoinSigninEnabled || googleSigninEnabled || samlSigninEnabled || office365SigninEnabled)) {
             loginControls.push(
                 <div
                     key='divider'
@@ -665,19 +665,19 @@ class LoginController extends React.Component {
             );
         }
 
-        if (gitlabSigninEnabled) {
+        if (gitcoinSigninEnabled) {
             loginControls.push(
                 <a
-                    className='btn btn-custom-login gitlab'
-                    key='gitlab'
-                    href={Client4.getOAuthRoute() + '/gitlab/login' + this.props.location.search}
+                    className='btn btn-custom-login gitcoin'
+                    key='gitcoin'
+                    href={Client4.getOAuthRoute() + '/gitcoin/login' + this.props.location.search}
                 >
                     <span>
                         <span className='icon'/>
                         <span>
                             <FormattedMessage
-                                id='login.gitlab'
-                                defaultMessage='GitLab'
+                                id='login.gitcoin'
+                                defaultMessage='GitCoin'
                             />
                         </span>
                     </span>

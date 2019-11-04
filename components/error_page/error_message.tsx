@@ -123,14 +123,14 @@ const ErrorMessage: React.FC<Props> = ({type, message, service}: Props) => {
                     </p>
                     <p>
                         <FormattedMessage
-                            id='error.oauth_missing_code.gitlab'
+                            id='error.oauth_missing_code.gitcoin'
                             defaultMessage='For {link} please make sure you followed the setup instructions.'
                             values={{
                                 link: (
                                     <ErrorLink
-                                        url={'https://docs.mattermost.com/deployment/sso-gitlab.html'}
-                                        messageId={t('error.oauth_missing_code.gitlab.link')}
-                                        defaultMessage={'GitLab'}
+                                        url={'https://docs.mattermost.com/deployment/sso-gitcoin.html'}
+                                        messageId={t('error.oauth_missing_code.gitcoin.link')}
+                                        defaultMessage={'GitCoin'}
                                     />
                                 ),
                             }}

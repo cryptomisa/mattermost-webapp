@@ -34,7 +34,7 @@ describe('components/SignupController', () => {
         enableSAML: true,
         enableLDAP: true,
         enableSignUpWithEmail: true,
-        enableSignUpWithGitLab: true,
+        enableSignUpWithGitCoin: true,
         enableSignUpWithGoogle: true,
         enableSignUpWithOffice365: true,
         samlLoginButtonText: 'SAML',
