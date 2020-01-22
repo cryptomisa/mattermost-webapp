@@ -273,10 +273,10 @@ var config = {
         // Generate manifest.json, honouring any configured publicPath. This also handles injecting
         // <link rel="apple-touch-icon" ... /> and <meta name="apple-*" ... /> tags into root.html.
         new WebpackPwaManifest({
-            name: 'Mattermost',
-            short_name: 'Mattermost',
+            name: 'Gitcoin',
+            short_name: 'Gitcoin',
             start_url: '..',
-            description: 'Mattermost is an open source, self-hosted Slack-alternative',
+            description: 'Gitcoin - where work happens',
             background_color: '#ffffff',
             inject: true,
             ios: true,
@@ -287,41 +287,10 @@ var config = {
                 src: path.resolve('images/favicon/android-chrome-192x192.png'),
                 type: 'image/png',
                 sizes: '192x192',
-            }, {
-                src: path.resolve('images/favicon/apple-touch-icon-120x120.png'),
+            },{
+                src: path.resolve('images/favicon/android-chrome-512x512.png'),
                 type: 'image/png',
-                sizes: '120x120',
-                ios: true,
-            }, {
-                src: path.resolve('images/favicon/apple-touch-icon-144x144.png'),
-                type: 'image/png',
-                sizes: '144x144',
-                ios: true,
-            }, {
-                src: path.resolve('images/favicon/apple-touch-icon-152x152.png'),
-                type: 'image/png',
-                sizes: '152x152',
-                ios: true,
-            }, {
-                src: path.resolve('images/favicon/apple-touch-icon-57x57.png'),
-                type: 'image/png',
-                sizes: '57x57',
-                ios: true,
-            }, {
-                src: path.resolve('images/favicon/apple-touch-icon-60x60.png'),
-                type: 'image/png',
-                sizes: '60x60',
-                ios: true,
-            }, {
-                src: path.resolve('images/favicon/apple-touch-icon-72x72.png'),
-                type: 'image/png',
-                sizes: '72x72',
-                ios: true,
-            }, {
-                src: path.resolve('images/favicon/apple-touch-icon-76x76.png'),
-                type: 'image/png',
-                sizes: '76x76',
-                ios: true,
+                sizes: '512x512',
             }, {
                 src: path.resolve('images/favicon/favicon-16x16.png'),
                 type: 'image/png',
@@ -330,10 +299,6 @@ var config = {
                 src: path.resolve('images/favicon/favicon-32x32.png'),
                 type: 'image/png',
                 sizes: '32x32',
-            }, {
-                src: path.resolve('images/favicon/favicon-96x96.png'),
-                type: 'image/png',
-                sizes: '96x96',
             }],
         }),
     ],

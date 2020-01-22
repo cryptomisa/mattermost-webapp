@@ -242,11 +242,16 @@ class ProfilePopover extends React.PureComponent {
                     overlay={<Tooltip id='fullNameTooltip'>{fullname}</Tooltip>}
                     key='user-popover-fullname'
                 >
-                    <div
-                        className='overflow--ellipsis text-nowrap'
-                    >
-                        <strong>{fullname}</strong>
-                    </div>
+                    <>
+                        <div className='overflow--ellipsis text-nowrap'>
+                            <strong>{fullname}</strong>
+                        </div>
+                        <div
+                            className='overflow--ellipsis text-nowrap'
+                        >
+                            <a href={`https://gitcoin.co/${this.props.user.username}`}>{`https://gitcoin.co/${this.props.user.username}`}</a>
+                        </div>
+                    </>
                 </OverlayTrigger>
             );
         }
