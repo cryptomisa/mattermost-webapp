@@ -3250,7 +3250,7 @@ const AdminDefinition = {
                         label_default: 'Auth Endpoint:',
                         dynamic_value: (value, config, state) => {
                             if (state['GitCoinSettings.Url']) {
-                                return state['GitCoinSettings.Url'].replace(/\/$/, '') + '/oauth/authorize';
+                                return state['GitCoinSettings.Url'].replace(/\/$/, '') + '/o/authorize/';
                             }
                             return '';
                         },
@@ -3263,7 +3263,7 @@ const AdminDefinition = {
                         label_default: 'Token Endpoint:',
                         dynamic_value: (value, config, state) => {
                             if (state['GitCoinSettings.Url']) {
-                                return state['GitCoinSettings.Url'].replace(/\/$/, '') + '/oauth/token';
+                                return state['GitCoinSettings.Url'].replace(/\/$/, '') + '/o/token/';
                             }
                             return '';
                         },
@@ -3284,7 +3284,7 @@ const AdminDefinition = {
                 onConfigLoad: (config) => {
                     const newState = {};
                     if (config.GitCoinSettings && config.GitCoinSettings.Enable) {
-                        newState.oauthType = Constants.gitcoin_SERVICE;
+                        newState.oauthType = Constants.GITCOIN_SERVICE;
                     }
                     if (config.Office365Settings && config.Office365Settings.Enable) {
                         newState.oauthType = Constants.OFFICE365_SERVICE;
@@ -3293,7 +3293,7 @@ const AdminDefinition = {
                         newState.oauthType = Constants.GOOGLE_SERVICE;
                     }
 
-                    newState['GitCoinSettings.Url'] = config.GitCoinSettings.UserApiEndpoint.replace('/api/v4/user', '');
+                    newState['GitCoinSettings.Url'] = config.GitCoinSettings.UserApiEndpoint.replace('/api/user/me', '');
 
                     return newState;
                 },
@@ -3308,7 +3308,7 @@ const AdminDefinition = {
                     newConfig.GoogleSettings.Enable = false;
                     newConfig.GitCoinSettings.UserApiEndpoint = config.GitCoinSettings.Url.replace(/\/$/, '') + '/api/v4/user';
 
-                    if (config.oauthType === Constants.gitcoin_SERVICE) {
+                    if (config.oauthType === Constants.GITCOIN_SERVICE) {
                         newConfig.GitCoinSettings.Enable = true;
                     }
                     if (config.oauthType === Constants.OFFICE365_SERVICE) {
@@ -3333,11 +3333,11 @@ const AdminDefinition = {
                                 display_name_default: 'Do not allow sign-in via an OAuth 2.0 provider.',
                             },
                             {
-                                value: Constants.gitcoin_SERVICE,
+                                value: Constants.GITCOIN_SERVICE,
                                 display_name: t('admin.oauth.gitcoin'),
                                 display_name_default: 'GitCoin',
                                 help_text: t('admin.gitcoin.EnableMarkdownDesc'),
-                                help_text_default: '1. Log in to your GitCoin account and go to Profile Settings -> Applications.\n2. Enter Redirect URIs "<your-mattermost-url>/login/gitcoin/complete" (example: http://localhost:8065/login/gitcoin/complete) and "<your-mattermost-url>/signup/gitcoin/complete".\n3. Then use "Application Secret Key" and "Application ID" fields from GitCoin to complete the options below.\n4. Complete the Endpoint URLs below.',
+                                help_text_default: '1. Log in to your GitCoin administrator account and go to Applications.\n2. Enter Redirect URIs "<your-mattermost-url>/login/gitcoin/complete" (example: http://localhost:8065/login/gitcoin/complete) and "<your-mattermost-url>/signup/gitcoin/complete".\n3. Then use "Application Secret Key" and "Application ID" fields from GitCoin to complete the options below.\n4. Complete the Endpoint URLs below.',
                                 help_text_markdown: true,
                             },
                             {
@@ -3400,7 +3400,7 @@ const AdminDefinition = {
                         label_default: 'User API Endpoint:',
                         dynamic_value: (value, config, state) => {
                             if (state['GitCoinSettings.Url']) {
-                                return state['GitCoinSettings.Url'].replace(/\/$/, '') + '/api/v4/user';
+                                return state['GitCoinSettings.Url'].replace(/\/$/, '') + '/api/user/me';
                             }
                             return '';
                         },
@@ -3414,7 +3414,7 @@ const AdminDefinition = {
                         label_default: 'Auth Endpoint:',
                         dynamic_value: (value, config, state) => {
                             if (state['GitCoinSettings.Url']) {
-                                return state['GitCoinSettings.Url'].replace(/\/$/, '') + '/oauth/authorize';
+                                return state['GitCoinSettings.Url'].replace(/\/$/, '') + '/o/authorize/';
                             }
                             return '';
                         },
@@ -3428,7 +3428,7 @@ const AdminDefinition = {
                         label_default: 'Token Endpoint:',
                         dynamic_value: (value, config, state) => {
                             if (state['GitCoinSettings.Url']) {
-                                return state['GitCoinSettings.Url'].replace(/\/$/, '') + '/oauth/token';
+                                return state['GitCoinSettings.Url'].replace(/\/$/, '') + '/o/token/';
                             }
                             return '';
                         },
