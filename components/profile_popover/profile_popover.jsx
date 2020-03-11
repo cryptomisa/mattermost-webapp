@@ -6,7 +6,7 @@ import React from 'react';
 import {OverlayTrigger, Tooltip} from 'react-bootstrap';
 import {FormattedMessage, intlShape, injectIntl} from 'react-intl';
 
-import EventEmitter from 'mattermost-redux/utils/event_emitter';
+import EventEmitter from  'mattermost-redux/utils/event_emitter';
 
 import LocalDateTime from 'components/local_date_time';
 import UserSettingsModal from 'components/user_settings/modal';
@@ -243,19 +243,32 @@ class ProfilePopover extends React.PureComponent {
                     overlay={<Tooltip id='fullNameTooltip'>{fullname}</Tooltip>}
                     key='user-popover-fullname'
                 >
-                <>
                     <div className='overflow--ellipsis text-nowrap'>
                         <strong>{fullname}</strong>
                     </div>
-                    <div
-                        className='overflow--ellipsis text-nowrap'
-                    >
-                        <a href={`https://gitcoin.co/${this.props.user.username}`}>{`https://gitcoin.co/${this.props.user.username}`}</a>
-                    </div>
-                </>
                 </OverlayTrigger>
             );
         }
+
+        dataContent.push(
+            <div
+                data-toggle='tooltip'
+                title={"Profile"}
+                key='user-popover-gitcoin'
+            >
+                <div className='overflow--ellipsis text-nowrap'>
+                    <strong>Profile:</strong>
+                </div>
+                <a
+                    href={`https://gitcoin.co/${this.props.user.username}`}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='text-nowrap text-lowercase user-popover__email padding-bottom half'
+                >
+                    {`https://gitcoin.co/${this.props.user.username}`}
+                </a>
+            </div>
+        );
 
         if (this.props.user.is_bot) {
             dataContent.push(
@@ -285,7 +298,6 @@ class ProfilePopover extends React.PureComponent {
                 </OverlayTrigger>,
             );
         }
-
         const email = this.props.user.email;
         if (email && !this.props.user.is_bot) {
             dataContent.push(
@@ -307,7 +319,7 @@ class ProfilePopover extends React.PureComponent {
                     >
                         {email}
                     </a>
-                </div>,
+                </div>
             );
         }
 

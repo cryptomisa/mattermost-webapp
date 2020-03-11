@@ -680,7 +680,7 @@ class LoginController extends React.Component {
                         <span>
                             <FormattedMessage
                                 id='login.gitcoin'
-                                defaultMessage='GitCoin'
+                                defaultMessage='Gitcoin'
                             />
                         </span>
                     </span>

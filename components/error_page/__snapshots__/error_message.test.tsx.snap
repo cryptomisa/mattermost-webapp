@@ -76,7 +76,7 @@ exports[`components/error_page/ErrorMessage should match snapshot, oauth_access_
     id="error.oauth_access_denied"
     values={
       Object {
-        "service": "GitCoin",
+        "service": "Gitcoin",
       }
     }
   />
@@ -91,7 +91,7 @@ exports[`components/error_page/ErrorMessage should match snapshot, oauth_missing
       id="error.oauth_missing_code"
       values={
         Object {
-          "service": "GitCoin",
+          "service": "Gitcoin",
         }
       }
     />
@@ -133,7 +133,7 @@ exports[`components/error_page/ErrorMessage should match snapshot, oauth_missing
       values={
         Object {
           "link": <ErrorLink
-            defaultMessage="GitCoin"
+            defaultMessage="Gitcoin"
             messageId="error.oauth_missing_code.gitcoin.link"
             url="https://docs.mattermost.com/deployment/sso-gitcoin.html"
           />,

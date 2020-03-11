@@ -44,7 +44,7 @@ export default class SecurityTab extends React.PureComponent {
         // Whether or not sign-up with email is enabled.
         enableSignUpWithEmail: PropTypes.bool,
 
-        // Whether or not sign-up with GitCoin is enabled.
+        // Whether or not sign-up with Gitcoin is enabled.
         enableSignUpWithGitCoin: PropTypes.bool,
 
         // Whether or not sign-up with Google is enabled.
@@ -296,7 +296,7 @@ export default class SecurityTab extends React.PureComponent {
                         </div>
                     </div>
                 );
-            } else if (this.props.user.auth_service === Constants.gitcoin_SERVICE) {
+            } else if (this.props.user.auth_service === Constants.GITCOIN_SERVICE) {
                 inputs.push(
                     <div
                         key='oauthEmailInfo'
@@ -305,7 +305,7 @@ export default class SecurityTab extends React.PureComponent {
                         <div className='padding-bottom x2'>
                             <FormattedMessage
                                 id='user.settings.security.passwordGitcoinCantUpdate'
-                                defaultMessage='Login occurs through GitCoin. Password cannot be updated.'
+                                defaultMessage='Login occurs through Gitcoin. Password cannot be updated.'
                             />
                         </div>
                     </div>
@@ -415,11 +415,11 @@ export default class SecurityTab extends React.PureComponent {
                     }}
                 />
             );
-        } else if (this.props.user.auth_service === Constants.gitcoin_SERVICE) {
+        } else if (this.props.user.auth_service === Constants.GITCOIN_SERVICE) {
             describe = (
                 <FormattedMessage
                     id='user.settings.security.loginGitcoin'
-                    defaultMessage='Login done through GitCoin'
+                    defaultMessage='Login done through Gitcoin'
                 />
             );
         } else if (this.props.user.auth_service === Constants.LDAP_SERVICE) {
@@ -485,11 +485,11 @@ export default class SecurityTab extends React.PureComponent {
                         <div className='padding-bottom x2'>
                             <Link
                                 className='btn btn-primary'
-                                to={'/claim/email_to_oauth?email=' + encodeURIComponent(user.email) + '&old_type=' + user.auth_service + '&new_type=' + Constants.gitcoin_SERVICE}
+                                to={'/claim/email_to_oauth?email=' + encodeURIComponent(user.email) + '&old_type=' + user.auth_service + '&new_type=' + Constants.GITCOIN_SERVICE}
                             >
                                 <FormattedMessage
                                     id='user.settings.security.switchGitcoin'
-                                    defaultMessage='Switch to using GitCoin SSO'
+                                    defaultMessage='Switch to using Gitcoin SSO'
                                 />
                             </Link>
                             <br/>
@@ -626,11 +626,11 @@ export default class SecurityTab extends React.PureComponent {
                 defaultMessage='Email and Password'
             />
         );
-        if (this.props.user.auth_service === Constants.gitcoin_SERVICE) {
+        if (this.props.user.auth_service === Constants.GITCOIN_SERVICE) {
             describe = (
                 <FormattedMessage
                     id='user.settings.security.gitcoin'
-                    defaultMessage='GitCoin'
+                    defaultMessage='Gitcoin'
                 />
             );
         } else if (this.props.user.auth_service === Constants.GOOGLE_SERVICE) {

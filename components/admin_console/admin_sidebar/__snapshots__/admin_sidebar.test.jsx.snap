@@ -1201,7 +1201,7 @@ exports[`components/AdminSidebar should match snapshot 1`] = `
               subsection={false}
               title={
                 <FormattedMessage
-                  defaultMessage="GitCoin"
+                  defaultMessage="Gitcoin"
                   id="admin.sidebar.gitcoin"
                   values={Object {}}
                 />
@@ -1803,7 +1803,7 @@ exports[`components/AdminSidebar should match snapshot, not prevent the console 
               subsection={false}
               title={
                 <FormattedMessage
-                  defaultMessage="GitCoin"
+                  defaultMessage="Gitcoin"
                   id="admin.sidebar.gitcoin"
                   values={Object {}}
                 />
@@ -2398,7 +2398,7 @@ exports[`components/AdminSidebar should match snapshot, not render the plugin in
               subsection={false}
               title={
                 <FormattedMessage
-                  defaultMessage="GitCoin"
+                  defaultMessage="Gitcoin"
                   id="admin.sidebar.gitcoin"
                   values={Object {}}
                 />

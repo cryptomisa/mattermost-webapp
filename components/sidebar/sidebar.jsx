@@ -257,7 +257,8 @@ export default class Sidebar extends React.PureComponent {
             link.rel = 'shortcut icon';
             link.id = 'favicon';
             if (this.badgesActive) {
-                link.href = typeof redFavicon === 'string' ? redFavicon : '';
+                // link.href = typeof redFavicon === 'string' ? redFavicon : '';
+                link.href = typeof favicon === 'string' ? favicon : '';
             } else {
                 link.href = typeof favicon === 'string' ? favicon : '';
             }

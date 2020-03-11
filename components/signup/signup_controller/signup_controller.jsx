@@ -186,7 +186,7 @@ export default class SignupController extends React.Component {
                         <span>
                             <FormattedMessage
                                 id='signup.gitcoin'
-                                defaultMessage='Connect GitCoin'
+                                defaultMessage='Connect Gitcoin'
                             />
                         </span>
                     </span>

@@ -139,7 +139,7 @@ const ErrorMessage: React.FC<Props> = ({type, message, service, isGuest}: Props)
                                     <ErrorLink
                                         url={'https://docs.mattermost.com/deployment/sso-gitcoin.html'}
                                         messageId={t('error.oauth_missing_code.gitcoin.link')}
-                                        defaultMessage={'GitCoin'}
+                                        defaultMessage={'Gitcoin'}
                                     />
                                 ),
                             }}

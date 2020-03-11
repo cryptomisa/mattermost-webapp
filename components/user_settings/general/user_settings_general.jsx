@@ -538,7 +538,7 @@ class UserSettingsGeneralTab extends React.Component {
                 );
 
                 submit = this.submitEmail;
-            } else if (this.props.user.auth_service === Constants.gitcoin_SERVICE) {
+            } else if (this.props.user.auth_service === Constants.GITCOIN_SERVICE) {
                 inputs.push(
                     <div
                         key='oauthEmailInfo'
@@ -547,7 +547,7 @@ class UserSettingsGeneralTab extends React.Component {
                         <div className='setting-list__hint padding-bottom x2'>
                             <FormattedMessage
                                 id='user.settings.general.emailGitcoinCantUpdate'
-                                defaultMessage='Login occurs through GitCoin. Email cannot be updated. Email address used for notifications is {email}.'
+                                defaultMessage='Login occurs through Gitcoin. Email cannot be updated. Email address used for notifications is {email}.'
                                 values={{
                                     email: this.state.originalEmail,
                                 }}
@@ -649,11 +649,11 @@ class UserSettingsGeneralTab extends React.Component {
             let describe = '';
             if (this.props.user.auth_service === '') {
                 describe = this.props.user.email;
-            } else if (this.props.user.auth_service === Constants.gitcoin_SERVICE) {
+            } else if (this.props.user.auth_service === Constants.GITCOIN_SERVICE) {
                 describe = (
                     <FormattedMessage
                         id='user.settings.general.loginGitcoin'
-                        defaultMessage='Login done through GitCoin ({email})'
+                        defaultMessage='Login done through Gitcoin ({email})'
                         values={{
                             email: this.state.originalEmail,
                         }}

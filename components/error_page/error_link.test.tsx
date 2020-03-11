@@ -10,7 +10,7 @@ describe('components/error_page/ErrorLink', () => {
     const baseProps = {
         url: 'https://docs.mattermost.com/deployment/sso-gitcoin.html',
         messageId: 'error.oauth_missing_code.gitcoin.link',
-        defaultMessage: 'GitCoin',
+        defaultMessage: 'Gitcoin',
     };
 
     test('should match snapshot', () => {

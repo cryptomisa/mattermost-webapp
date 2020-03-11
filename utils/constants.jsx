@@ -843,7 +843,7 @@ export const Constants = {
     EMOJI_PICKER_WIDTH_OFFSET: 295,
     THEMES: {
         default: {
-            type: 'GitCoin',
+            type: 'Gitcoin',
             sidebarBg: '#15003e',
             sidebarText: '#ffffff',
             sidebarUnreadText: '#ffffff',
@@ -856,6 +856,7 @@ export const Constants = {
             awayIndicator: '#e0b333',
             dndIndicator: '#f74343',
             mentionBg: '#ffffff',
+            mentionBj: '#d00606',
             mentionColor: '#ffffff',
             centerChannelBg: '#ffffff',
             centerChannelColor: '#333333',

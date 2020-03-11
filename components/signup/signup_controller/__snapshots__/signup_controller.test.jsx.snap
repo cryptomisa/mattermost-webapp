@@ -157,7 +157,7 @@ exports[`components/SignupController should match snapshot for all signup option
             />
             <span>
               <FormattedMessage
-                defaultMessage="GitCoin Single Sign-On"
+                defaultMessage="Gitcoin Single Sign-On"
                 id="signup.gitcoin"
                 values={Object {}}
               />
@@ -259,7 +259,7 @@ exports[`components/SignupController should match snapshot for all signup option
             />
             <span>
               <FormattedMessage
-                defaultMessage="GitCoin Single Sign-On"
+                defaultMessage="Gitcoin Single Sign-On"
                 id="signup.gitcoin"
                 values={Object {}}
               />

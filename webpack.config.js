@@ -263,22 +263,21 @@ var config = {
         new CopyWebpackPlugin([
             {from: 'images/emoji', to: 'emoji'},
             {from: 'images/img_trans.gif', to: 'images'},
-            {from: 'images/logo-email.png', to: 'images'},
+            {from: 'images/logo-gitcoin-email-new.png', to: 'images'},
             {from: 'images/circles.png', to: 'images'},
             {from: 'images/favicon', to: 'images/favicon'},
             {from: 'images/appIcons.png', to: 'images'},
             {from: 'images/warning.png', to: 'images'},
-            {from: 'images/logo-email.png', to: 'images'},
             {from: 'images/browser-icons', to: 'images/browser-icons'},
         ]),
 
         // Generate manifest.json, honouring any configured publicPath. This also handles injecting
         // <link rel="apple-touch-icon" ... /> and <meta name="apple-*" ... /> tags into root.html.
         new WebpackPwaManifest({
-            name: 'Gitcoin',
+            name: 'Gitcoin Chat',
             short_name: 'Gitcoin',
             start_url: '..',
-            description: 'Gitcoin - where work happens',
+            description: 'At Gitcoin, we build products that allow for better incentivized collaboration in the realm of open source software',
             background_color: '#ffffff',
             inject: true,
             ios: true,
@@ -289,7 +288,7 @@ var config = {
                 src: path.resolve('images/favicon/android-chrome-192x192.png'),
                 type: 'image/png',
                 sizes: '192x192',
-            },{
+            }, {
                 src: path.resolve('images/favicon/android-chrome-512x512.png'),
                 type: 'image/png',
                 sizes: '512x512',

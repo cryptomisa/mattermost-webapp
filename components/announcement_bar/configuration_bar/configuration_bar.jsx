@@ -138,7 +138,7 @@ export default class ConfigurationAnnouncementBar extends React.PureComponent {
             let defaultMessage;
             if (this.props.config.EnableSignUpWithGitCoin === 'true') {
                 id = t('announcement_bar.error.site_url_gitcoin.full');
-                defaultMessage = 'Please configure your [Site URL](https://docs.mattermost.com/administration/config-settings.html#site-url) in the [System Console]({siteURL}/admin_console/environment/web_server) or in gitcoin.rb if you\'re using GitCoin Mattermost.';
+                defaultMessage = 'Please configure your [Site URL](https://docs.mattermost.com/administration/config-settings.html#site-url) in the [System Console]({siteURL}/admin_console/environment/web_server) or in gitcoin.rb if you\'re using Gitcoin Mattermost.';
             } else {
                 id = t('announcement_bar.error.site_url.full');
                 defaultMessage = 'Please configure your [Site URL](https://docs.mattermost.com/administration/config-settings.html#site-url) in the [System Console]({siteURL}/admin_console/environment/web_server).';
